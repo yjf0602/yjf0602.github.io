@@ -21,7 +21,7 @@ Harris Conner 是最典型的角点检测子。
 
 基于图像灰度的方法通过计算点的曲率及梯度来检测角点，避免了第一类方法存在的缺陷，此类方法主要有Moravec算子、Forstner算子、Harris算子、SUSAN算子等。
 
-![](corner_history.jpg)
+![](https://cdn.jsdelivr.net/gh/yjf0602/PicHost/img/cv_corner_corner_history.jpg)
 
 这篇文章主要介绍的Harris角点检测的算法原理，比较著名的角点检测方法还有jianbo Shi和Carlo Tomasi提出的Shi-Tomasi算法，这个算法开始主要是为了解决跟踪问题，用来衡量两幅图像的相似度，我们也可以把它看为Harris算法的改进。OpenCV中已经对它进行了实现，接口函数名为[GoodFeaturesToTrack()](http://www.opencv.org.cn/opencvdoc/2.3.2/html/modules/imgproc/doc/feature_detection.html#goodfeaturestotrack)。另外还有一个著名的角点检测算子即SUSAN算子，SUSAN是Smallest Univalue Segment Assimilating Nucleus（最小核值相似区）的缩写。SUSAN使用一个圆形模板和一个圆的中心点，通过圆中心点像素与模板圆内其他像素值的比较，统计出与圆中心像素近似的像元数量，当这样的像元数量小于某一个阈值时，就被认为是要检测的角点。我觉得可以把SUSAN算子看为Harris算法的一个简化。这个算法原理非常简单，算法效率也高，所以在OpenCV中，它的接口函数名称为：[FAST()](https://docs.opencv.org/2.4/modules/features2d/doc/feature_detection_and_description.html#fast) 。
 
@@ -31,7 +31,7 @@ Harris Conner 是最典型的角点检测子。
 
 人眼对角点的识别通常是在一个局部的小区域或小窗口完成的。如果在各个方向上移动这个特征的小窗口，窗口内区域的灰度发生了较大的变化，那么就认为在窗口内遇到了角点。如果这个特定的窗口在图像各个方向上移动时，窗口内图像的灰度没有发生变化，那么窗口内就不存在角点；如果窗口在某一个方向移动时，窗口内图像的灰度发生了较大的变化，而在另一些方向上没有发生变化，那么，窗口内的图像可能就是一条直线的线段。
 
-![](plane_line_corner.png)
+![](https://cdn.jsdelivr.net/gh/yjf0602/PicHost/img/cv_corner_plane_line_corner.png)
 
 对于图像 $I(x,y)$ ，当在点 $(x,y)$ 出平移了 $(\Delta x,\Delta y)$ 后的自相关性，可通过自相关函数给出：
 
@@ -76,7 +76,7 @@ $$
 \left[\begin{array}{c}\Delta x&\Delta y\end{array}\right]M(x,y)\left[\begin{array}{cc}\Delta x\\\Delta y\end{array}\right]=1
 $$
 
-![](ellipse.png)
+![](https://cdn.jsdelivr.net/gh/yjf0602/PicHost/img/cv_corner_ellipse.png)
 
 椭圆函数特征值与图像中的角点、直线（边缘）和平面之间的关系如下图所示。共可分为三种情况：
 - 图像中的直线。一个特征值大，另一个特征值小， $\lambda_1\gg\lambda_2$ 或 $\lambda_2\gg\lambda_1$ 。自相关函数值在某一方向上大，在其他方向上小。
