@@ -167,7 +167,7 @@ $$
 
 上述过程的计算可视化：
 
-![](hii.png)
+![](https://cdn.jsdelivr.net/gh/yjf0602/PicHost/img/sgm_hii.png)
 
 类似的有：
 $$
@@ -251,7 +251,7 @@ $r$ 为8或16个方向。
 
 聚合示意图：
 
-![](aggregation.png)
+![](https://cdn.jsdelivr.net/gh/yjf0602/PicHost/img/sgm_aggregation.png)
 
 
 ### 2.3 Disparity Computation 视差计算
@@ -272,7 +272,7 @@ $$
 
 SGM 算法的总结示意图：
 
-![](SGM.png)
+![](https://cdn.jsdelivr.net/gh/yjf0602/PicHost/img/sgm_SGM.png)
 
 
 ### 2.4 Multibaseline Matching
